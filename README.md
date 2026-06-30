@@ -1,76 +1,39 @@
-# Tactical Map Layers
+**Developer:** Mursisru
 
-BepInEx plugin for **[Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/)** that adds a **centered layers panel** on the **fullscreen (maximized) tactical map**. Optional overlays: radar coverage disks, allied radars, enemy bases/airfields, and an approximate **front line**. The mod does **not** change game mechanics or networking; it reads public game state and draws UI under the map’s icon layer.
+# Tactical Map Layers — Visual Studio engine workspace
 
-**Plugin GUID:** `com.at747.tacticalmaplayers` · **Version:** see `TacticalMapLayersPlugin.PluginVersion` (matches `CHANGELOG.md`).
+[![Nuclear Option](https://img.shields.io/badge/Game-Nuclear%20Option-blue)](https://store.steampowered.com/app/2168680/Nuclear_Option/) [![BepInEx 5](https://img.shields.io/badge/Loader-BepInEx%205-orange)](https://docs.bepinex.dev/) [![Version](https://img.shields.io/badge/Version-0.0.0-green)]() [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-## Requirements
 
-- Nuclear Option (Windows), **BepInEx 5** x64.
+This folder **`TacticalMapLayers_Engine`** under `source\repos\` is the **Visual Studio solution** for the same BepInEx mod as in **`Desktop\GITHUB local\TacticalMapLayers\`** (the **canonical** tree for GitHub). Edit and build here; keep sources aligned when you publish a release.
 
-## Features
+**Plugin GUID:** `com.at747.tacticalmaplayers`  
+**Output DLL:** **`TacticalMapLayers.dll`** (same assembly name as the public repo; drop into `BepInEx\plugins\`).
 
-- **Hotkey** (default **F10**) toggles the panel while the map is **maximized** only.
-- **Tabs:** Tactical · Front · Settings — labels follow **Interface → Language** (`ru` / `en`).
-- **Tactical:** radar and facility layers (see table below).
-- **Front:** front-line overlay + optional hint text.
-- **Settings:** language, front-line hint toggle, “turn off all map overlays”.
-- Layer visibility and UI options persist in BepInEx **`BepInEx/config/com.at747.tacticalmaplayers.cfg`** (including last tab: **`Interface.LayersPanelMainTab`**).
+## Open in Visual Studio
 
-## Build
+1. Open **`TacticalMapLayers_Engine.sln`** in this directory.
+2. If the game is not at the default Steam path, copy **`Directory.Build.user.props.example`** → **`Directory.Build.user.props`** and set **`NuclearOptionRoot`**.
+3. Build **Release**. Output: **`TacticalMapLayers_Engine\bin\Release\TacticalMapLayers.dll`**.
 
-1. Clone or copy this repository folder (`TacticalMapLayers` at repo root).
-2. Copy `Directory.Build.user.props.example` → `Directory.Build.user.props` and set **`NuclearOptionRoot`** if your game is not at the default Steam path (see `Directory.Build.props`).
-3. Open **`TacticalMapLayers.sln`** (or **`TacticalMapLayers.slnx`**) in Visual Studio, configuration **Release**, build the **TacticalMapLayers** project — or from a Developer Prompt:
+Command line:
 
 ```text
-msbuild TacticalMapLayers\TacticalMapLayers.csproj /p:Configuration=Release
+msbuild TacticalMapLayers_Engine\TacticalMapLayers_Engine.csproj /p:Configuration=Release
 ```
 
-4. Copy **`TacticalMapLayers\bin\Release\TacticalMapLayers.dll`** to **`Nuclear Option\BepInEx\plugins\`**.
+## Behaviour (summary)
 
-> This folder is the **canonical** layout for GitHub (`TacticalMapLayers\TacticalMapLayers.csproj`). If you maintain a separate local VS worktree elsewhere, keep its sources in sync with this tree; the built artifact is always **`TacticalMapLayers.dll`**.
+BepInEx plugin for **[Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/)**: on the **maximized tactical map**, a **hotkey-toggled layers panel** (default **F10**) with **Tactical / Front / Settings** tabs — radar and facility overlays, optional **front line**, RU/EN UI, BepInEx persistence. Read-only client overlays; no gameplay or network changes.
 
-## Usage
-
-1. Open the tactical map and **maximize** it (fullscreen map).
-2. Press the configured hotkey (**F10** by default) to show or hide the **layers panel**.
-3. Use the **Tactical** / **Front** / **Settings** tabs and toggles as needed.
-
-### Layers (Tactical tab)
-
-| Config key (Radar / Other / Analysis) | Meaning |
-|----------------------------------------|---------|
-| **EnemyGroundRadars** | Enemy radars on **land vehicles, buildings, and ships** (not aircraft). Filled disk ≈ detection range (360° simplification). |
-| **AllyStationaryRadars** | Allied **stationary** radars. |
-| **AllyAllRadars** | **All** allied radars (360° disks). |
-| **EnemyAirbases** | Enemy-held **bases / airfields** (approximate highlight). |
-| **FrontLine** (Front tab) | Approximate **front line** between friendly and **visible** enemy ground/naval forces. |
-
-## Configuration (BepInEx)
-
-| Section | Notes |
-|---------|--------|
-| **Interface** | `Language` (`ru` / `en`), `ShowFrontLineHint`, **`LayersPanelMainTab`** (0 Tactical, 1 Front, 2 Settings). |
-| **Radar layers** | `EnemyGroundRadars`, `AllyStationaryRadars`, `AllyAllRadars`. |
-| **Other layers** | `EnemyAirbases`. |
-| **Analysis layers** | `FrontLine`. |
-| **Hotkeys** | `ToggleLayerPanel` (default F10). |
-
-## Limitations
-
-- **Radar azimuth** (narrow cones) is not rendered faithfully; disks use **360°** at the radar’s max range.
-- **Airbase** highlights use a fixed world radius for visibility, not the exact capture footprint.
-- Overlays refresh at an adaptive interval while the map is maximized; very large numbers of radars may cost some CPU.
-
-## Manual test checklist
-
-1. Maximize map → **F10** opens/closes the panel; tabs **Tactical / Front / Settings** switch correctly in both languages.
-2. Enable **EnemyGroundRadars** — disks appear; minimize map → overlays hidden; maximize again → **F10** still works after closing the map with the panel open.
-3. **Front** tab: **FrontLine** on/off; hint visibility follows **ShowFrontLineHint**.
-4. **Settings:** language chips, “turn off all map overlays”, config file updates **`LayersPanelMainTab`** when changing tabs.
-5. No repeated errors in `BepInEx/LogOutput.log` during open/close cycles.
+Full feature list, config table, limitations, manual test checklist, and **first-time GitHub push** instructions: see **`README.md`** in **`Desktop\GITHUB local\TacticalMapLayers\`** (keep that file the single detailed doc).
 
 ## License
 
 [MIT](LICENSE)
+
+---
+
+## Keywords
+
+nuclear-option, bepinex, harmony, mod, tacticalmaplayers, csharp, unity
