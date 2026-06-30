@@ -2,7 +2,7 @@
 
 # Tactical Map Layers — Visual Studio engine workspace
 
-[![Nuclear Option](https://img.shields.io/badge/Game-Nuclear%20Option-blue)](https://store.steampowered.com/app/2168680/Nuclear_Option/) [![BepInEx 5](https://img.shields.io/badge/Loader-BepInEx%205-orange)](https://docs.bepinex.dev/) [![Version](https://img.shields.io/badge/Version-0.0.0-green)]() [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
+[![Nuclear Option](https://img.shields.io/badge/Game-Nuclear%20Option-blue)](https://store.steampowered.com/app/2168680/Nuclear_Option/) [![BepInEx 5](https://img.shields.io/badge/Loader-BepInEx%205-orange)](https://docs.bepinex.dev/) [![Version](https://img.shields.io/badge/Version-1.0.1)]() [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 
 This folder **`TacticalMapLayers_Engine`** under `source\repos\` is the **Visual Studio solution** for the same BepInEx mod as in **`Desktop\GITHUB local\TacticalMapLayers\`** (the **canonical** tree for GitHub). Edit and build here; keep sources aligned when you publish a release.
