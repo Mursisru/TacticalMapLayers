@@ -7,14 +7,6 @@
 [![Version](https://img.shields.io/badge/Version-1.0.1-green)](https://github.com/Mursisru/TacticalMapLayers/releases/tag/v1.0.1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](https://github.com/Mursisru/TacticalMapLayers/blob/main/LICENSE)
 
-BepInEx 5 plugin for **[Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/)**: on the **maximized tactical map**, a hotkey-toggled **layers panel** (default **F10**) with **Tactical / Front / Settings** tabs — radar and facility overlays, optional **front line**, RU/EN UI, BepInEx persistence. Read-only client overlays; **no gameplay or network changes**.
-
-**Plugin GUID:** `com.at747.tacticalmaplayers`  
-**Output DLL:** `TacticalMapLayers.dll` → `BepInEx\plugins\`
-
-> [!NOTE]
-> **Engine workspace:** active development solution lives in `source\repos\TacticalMapLayers_Engine\`. This repo is the GitHub mirror; keep both trees aligned via robocopy before release.
-
 ---
 
 ## Critical warnings
@@ -30,6 +22,14 @@ BepInEx 5 plugin for **[Nuclear Option](https://store.steampowered.com/app/21686
 
 > [!NOTE]
 > **Multiplayer safe** - read-only client overlays; no gameplay or network changes.
+
+BepInEx 5 plugin for **[Nuclear Option](https://store.steampowered.com/app/2168680/Nuclear_Option/)**: on the **maximized tactical map**, a hotkey-toggled **layers panel** (default **F10**) with **Tactical / Front / Settings** tabs — radar and facility overlays, optional **front line**, RU/EN UI, BepInEx persistence. Read-only client overlays; **no gameplay or network changes**.
+
+**Plugin GUID:** `com.at747.tacticalmaplayers`  
+**Output DLL:** `TacticalMapLayers.dll` → `BepInEx\plugins\`
+
+> [!NOTE]
+> **Engine workspace:** active development solution lives in `source\repos\TacticalMapLayers_Engine\`. This repo is the GitHub mirror; keep both trees aligned via robocopy before release.
 
 ## Table of contents
 
