@@ -10,15 +10,12 @@
 ---
 
 ## Critical warnings
-
 > [!IMPORTANT]
 > **BepInEx 5 (x64) required** - install [BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html) before this mod.
 
 > [!WARNING]
-> **Requires maximized tactical map** - panel does not appear on small MFD map modes.
-
-> [!WARNING]
-> **Front line is heuristic** - fog-of-war and intel limits apply; untested vs mods that replace tactical map UI root.
+> - **Requires maximized tactical map** - panel does not appear on small MFD map modes.
+> - **Front line is heuristic** - fog-of-war and intel limits apply; untested vs mods that replace tactical map UI root.
 
 > [!NOTE]
 > **Multiplayer safe** - read-only client overlays; no gameplay or network changes.
